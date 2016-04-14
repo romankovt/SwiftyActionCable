@@ -112,6 +112,12 @@ public class ActionCableClient {
         }
     }
     
+    public func unsubscribeAll() {
+        for channel in channels {
+            unsubscribeFrom(channel)
+        }
+    }
+    
     public func findChannelBy(identifier: String) -> ActionChannel? {
         if let i = channels.indexOf({ $0.identifier == identifier }) {
             return channels[i]
