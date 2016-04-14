@@ -1,6 +1,6 @@
 import SwiftyJSON
 
-enum ActionCableResponseType {
+public enum ActionCableResponseType {
     case Ping, ConfirmSubscription, ConfirmUnsubscription, Message
 }
 

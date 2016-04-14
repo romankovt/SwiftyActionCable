@@ -1,22 +1,22 @@
 import SwiftWebSocket
 
-class ActionCableClient {
+public class ActionCableClient {
     var channels:[ActionChannel] = []
     var ws: WebSocket
     var reconnectionWaitTime: Int64 = 5
     
-    init(mutableRequest: NSMutableURLRequest) {
+    public init(mutableRequest: NSMutableURLRequest) {
         ws = WebSocket(request: mutableRequest)
         setupCallbacks()
     }
     
-    convenience init(cableURL: String) {
+    public convenience init(cableURL: String) {
         let mutableRequest = NSMutableURLRequest(URL: NSURL(string: cableURL)!)
         self.init(mutableRequest: mutableRequest)
     }
     
     // close cable connection
-    func disconnect() {
+    public func disconnect() {
         ws.close()
         
         // unsubscribe from channels
@@ -25,7 +25,7 @@ class ActionCableClient {
         }
     }
     
-    func subscribeTo(channel: ActionChannel, params: [String: AnyObject]? = nil) {
+    public func subscribeTo(channel: ActionChannel, params: [String: AnyObject]? = nil) {
         self.channels.append(channel)
         // bind channel to the current WS instance
         channel.ws = ws
@@ -51,7 +51,7 @@ class ActionCableClient {
         }
     }
     
-    func unsubscribeFrom(channel: ActionChannel) {
+    public func unsubscribeFrom(channel: ActionChannel) {
         if let identifier = channel.identifier {
             if let unsubscribeParams = ActionCableClient.serializeToJSONString(["command": "unsubscribe", "identifier": identifier]) {
                 ws.send(unsubscribeParams)
@@ -112,7 +112,7 @@ class ActionCableClient {
         }
     }
     
-    func findChannelBy(identifier: String) -> ActionChannel? {
+    public func findChannelBy(identifier: String) -> ActionChannel? {
         if let i = channels.indexOf({ $0.identifier == identifier }) {
             return channels[i]
         } else {
