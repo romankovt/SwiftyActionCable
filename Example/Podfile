@@ -2,11 +2,11 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'SwiftActionCableClient_Example', :exclusive => true do
-  pod 'SwiftActionCableClient', :path => '../'
+  pod 'ActionCable', :path => '../'
 end
 
 target 'SwiftActionCableClient_Tests', :exclusive => true do
-  pod 'SwiftActionCableClient', :path => '../'
+  pod 'ActionCable', :path => '../'
 
   pod 'Quick', '~> 0.8'
   pod 'Nimble', '~> 3.0'
