@@ -3,9 +3,6 @@
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "SwiftActionCableClient"
   s.version          = "0.1.0"
@@ -20,11 +17,9 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = "https://github.com/<GITHUB_USERNAME>/SwiftActionCableClient"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Roman Kovtunenko" => "roman.kovtunenko@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SwiftActionCableClient.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/tenshilg/SwiftActionCableClient.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -33,8 +28,6 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'SwiftActionCableClient' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SwiftyJSON', '~> 2.3.0'
+  s.dependency 'SwiftWebSocket', '~> 2.6.0'
 end
