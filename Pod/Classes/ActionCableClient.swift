@@ -4,6 +4,7 @@ public class ActionCableClient {
     var channels:[ActionChannel] = []
     var ws: WebSocket
     var reconnectionWaitTime: Int64 = 5
+    var reconnect = true
     
     public init(mutableRequest: NSMutableURLRequest) {
         ws = WebSocket(request: mutableRequest)
@@ -17,6 +18,7 @@ public class ActionCableClient {
     
     // close cable connection
     public func disconnect() {
+        reconnect = false
         ws.close()
         
         // unsubscribe from channels
@@ -87,6 +89,8 @@ public class ActionCableClient {
         
         // when connects to socket subscribe all channels
         ws.event.open = {
+            // set reconnection to true by default
+            self.reconnect = true
             for channel in self.channels {
                 if channel.status == .NotConnected {
                     channel.subscribe()
@@ -97,17 +101,19 @@ public class ActionCableClient {
         // try to reconnect to socket if fails
         ws.event.close = { _ in
             // close current one
-            self.ws.close()
-            
-            // change channel statuses for subscribed channels
-            for channel in self.channels where channel.status == .Subscribed {
-                channel.status = .NotConnected
-            }
-            
-            // try reopen every 5 sec by default
-            let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), self.reconnectionWaitTime * Int64(NSEC_PER_SEC))
-            dispatch_after(time, dispatch_get_main_queue()) {
-                self.ws.open() // reconnect to the previous connection
+            if self.reconnect == true {
+                self.ws.close()
+                
+                // change channel statuses for subscribed channels
+                for channel in self.channels where channel.status == .Subscribed {
+                    channel.status = .NotConnected
+                }
+                
+                // try reopen every 5 sec by default
+                let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), self.reconnectionWaitTime * Int64(NSEC_PER_SEC))
+                dispatch_after(time, dispatch_get_main_queue()) {
+                    self.ws.open() // reconnect to the previous connection
+                }
             }
         }
     }
