@@ -19,7 +19,6 @@ class ActionCableResponse {
     private func parseResponse() {
         if let data = self.plainResponse.dataUsingEncoding(NSUTF8StringEncoding) {
             let json = JSON(data: data)
-            print(json)
             if json["identifier"].string! == "_ping" {
                 // --- PING MESSAGE ---
                 self.type = .Ping

@@ -1,7 +1,7 @@
 import SwiftWebSocket
 
 public class ActionCableClient {
-    var channels:[ActionChannel] = []
+    var channels: [ActionChannel] = []
     var ws: WebSocket
     var reconnectionWaitTime: Int64 = 5
     var reconnect = true
@@ -98,7 +98,7 @@ public class ActionCableClient {
             }
         }
         
-        // try to reconnect to socket if fails
+        // try to reconnect to a socket if fails
         ws.event.close = { _ in
             // close current one
             if self.reconnect == true {

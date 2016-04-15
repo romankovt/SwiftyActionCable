@@ -1,15 +1,38 @@
-# SwiftActionCableClient
 
 [![CI Status](http://img.shields.io/travis/Roman Kovtunenko/SwiftActionCableClient.svg?style=flat)](https://travis-ci.org/Roman Kovtunenko/SwiftActionCableClient)
 [![Version](https://img.shields.io/cocoapods/v/SwiftActionCableClient.svg?style=flat)](http://cocoapods.org/pods/SwiftActionCableClient)
 [![License](https://img.shields.io/cocoapods/l/SwiftActionCableClient.svg?style=flat)](http://cocoapods.org/pods/SwiftActionCableClient)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftActionCableClient.svg?style=flat)](http://cocoapods.org/pods/SwiftActionCableClient)
+# SwiftActionCableClient
+Super simple implementation of Rails ActionCable client written in Swift.
+Working on top of swift websocket library: https://github.com/tidwall/SwiftWebSocket
 
-## Usage
+## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```swift
+// Initiate client with NSMutableURLRequest
+let request = NSMutableURLRequest(URL: NSURL(string: http://localhost:8000/cable)!)
+client = ActionCableClient(mutableRequest: request)
 
-## Requirements
+// Create new channel
+let exampleChannel = ActionChannel.init(name: "ExampleChannel") 
+
+// callback on message from server
+exampleChannel.onMessage = { json in
+  print(json)
+}
+
+// callback on succesfull subsbscription
+exampleChannel.onSubscribed  = {
+  print("succesfully subscribed!")
+}
+
+// send subscribe to request to server and start listening
+client.subscribeTo(exampleChannel)
+
+// send unsubscribe event to the server
+exampleChannel.unSubscribe()
+```
 
 ## Installation
 
@@ -19,6 +42,10 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "SwiftActionCableClient"
 ```
+
+## Dependencies
+  * SwiftyJSON https://github.com/SwiftyJSON/SwiftyJSON
+  * WebSockets https://github.com/tidwall/SwiftWebSocket
 
 ## Author
 

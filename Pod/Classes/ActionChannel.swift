@@ -15,7 +15,7 @@ public class ActionChannel {
     public var onSubscribed: (() -> ())?
     // called when gets message for this channel
     public var onMessage: ((JSON) -> ())?
-    public var ws:WebSocket?
+    public var ws: WebSocket?
     
     public init(name: String) {
         self.name = name
