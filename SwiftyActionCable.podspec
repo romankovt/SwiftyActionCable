@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     Super simple implementation of Rails ActionCable client written in Swift. Working on top of swift websocket library: https://github.com/tidwall/SwiftWebSocket
                        DESC
 
-  s.homepage         = "https://github.com/tenshilg/SwiftyActionCableClient"
+  s.homepage         = "https://github.com/tenshilg/SwiftyActionCable"
   s.license          = 'MIT'
   s.author           = { "Roman Kovtunenko" => "roman.kovtunenko@gmail.com" }
   s.source           = { :git => "https://github.com/tenshilg/SwiftyActionCable.git", :tag => s.version.to_s }
@@ -26,9 +26,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'SwiftyActionCable' => ['Pod/Assets/*.png']
-  }
+  #s.resource_bundles = {
+  #  'SwiftyActionCable' => ['Pod/Assets/*.png']
+  #}
   s.dependency 'SwiftyJSON', '~> 2.3.0'
   s.dependency 'SwiftWebSocket', '~> 2.6.0'
 end
