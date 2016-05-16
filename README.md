@@ -11,27 +11,27 @@ Working on top of swift websocket library: https://github.com/tidwall/SwiftWebSo
 
 ```swift
 // Initiate client with NSMutableURLRequest
-let request = NSMutableURLRequest(URL: NSURL(string: http://localhost:8000/cable)!)
-client = ActionCableClient(mutableRequest: request)
+let request = NSMutableURLRequest(URL: NSURL(string: "ws://localhost:3000/cable")!)
+let client = ActionCableClient(mutableRequest: request)
 
 // Create new channel
-let exampleChannel = ActionChannel.init(name: "ExampleChannel") 
+let exampleChannel = ActionChannel.init(name: "ExampleChannel")
 
 // callback on message from server
 exampleChannel.onMessage = { json in
   print(json)
+  // send unsubscribe event to the server
+  client.unsubscribeFrom(exampleChannel)
 }
 
 // callback on succesfull subsbscription
 exampleChannel.onSubscribed  = {
-  print("succesfully subscribed!")
+    print("succesfully subscribed!")
 }
 
 // send subscribe to request to server and start listening
 client.subscribeTo(exampleChannel)
-
-// send unsubscribe event to the server
-exampleChannel.unSubscribe()
+exampleChannel.perform("say_hello")
 ```
 
 ## Installation
