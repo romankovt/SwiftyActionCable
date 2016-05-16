@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "SwiftActionCableClient_Example.app"
-               BlueprintName = "SwiftActionCableClient_Example"
-               ReferencedContainer = "container:SwiftActionCableClient.xcodeproj">
+               BuildableName = "SwiftyActionCableClient_Example.app"
+               BlueprintName = "SwiftyActionCableClient_Example"
+               ReferencedContainer = "container:SwiftyActionCable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SwiftActionCableClient_Tests.xctest"
-               BlueprintName = "SwiftActionCableClient_Tests"
-               ReferencedContainer = "container:SwiftActionCableClient.xcodeproj">
+               BuildableName = "SwiftyActionCableClient_Example.xctest"
+               BlueprintName = "SwiftyActionCableClient_Tests"
+               ReferencedContainer = "container:SwiftyActionCable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SwiftActionCableClient_Tests.xctest"
-               BlueprintName = "SwiftActionCableClient_Tests"
-               ReferencedContainer = "container:SwiftActionCableClient.xcodeproj">
+               BuildableName = "SwiftyActionCableClient_Example.xctest"
+               BlueprintName = "SwiftyActionCableClient_Tests"
+               ReferencedContainer = "container:SwiftyActionCable.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SwiftActionCableClient_Example.app"
-            BlueprintName = "SwiftActionCableClient_Example"
-            ReferencedContainer = "container:SwiftActionCableClient.xcodeproj">
+            BuildableName = "SwiftyActionCableClient_Example.app"
+            BlueprintName = "SwiftyActionCableClient_Example"
+            ReferencedContainer = "container:SwiftyActionCable.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SwiftActionCableClient_Example.app"
-            BlueprintName = "SwiftActionCableClient_Example"
-            ReferencedContainer = "container:SwiftActionCableClient.xcodeproj">
+            BuildableName = "SwiftyActionCableClient_Example.app"
+            BlueprintName = "SwiftyActionCableClient_Example"
+            ReferencedContainer = "container:SwiftyActionCable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SwiftActionCableClient_Example.app"
-            BlueprintName = "SwiftActionCableClient_Example"
-            ReferencedContainer = "container:SwiftActionCableClient.xcodeproj">
+            BuildableName = "SwiftyActionCableClient_Example.app"
+            BlueprintName = "SwiftyActionCableClient_Example"
+            ReferencedContainer = "container:SwiftyActionCable.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
