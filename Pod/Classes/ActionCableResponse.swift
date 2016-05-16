@@ -19,10 +19,10 @@ class ActionCableResponse {
     private func parseResponse() {
         if let data = self.plainResponse.dataUsingEncoding(NSUTF8StringEncoding) {
             let json = JSON(data: data)
-            if json["identifier"].string! == "_ping" {
+            if json["type"].string == "ping" {
                 // --- PING MESSAGE ---
                 self.type = .Ping
-            } else if json["type"].string != nil && json["type"].string! == "confirm_subscription" {
+            } else if json["type"].string == "confirm_subscription" {
                 // --- CONFIRM SUBSCRIPTION ---
                 self.type = .ConfirmSubscription
                 
@@ -34,7 +34,7 @@ class ActionCableResponse {
                         self.identifier = plainText
                     }
                 }
-            } else if json["type"].string != nil && json["type"].string! == "confirm_unsubscription" {
+            } else if json["type"].string == "confirm_unsubscription" {
                 // --- CONFIRM UNSUBSCRIPTION ---
                 self.type = .ConfirmUnsubscription
                 // set channel info

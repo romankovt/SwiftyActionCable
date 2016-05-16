@@ -27,7 +27,7 @@ public class ActionChannel {
     }
     
     // Perform method on a back-end side
-    public func perform(channelName: String, methodName: String) {
+    public func perform(methodName: String) {
         if let identifier = self.identifier {
             let paramsObj = ["command": "message", "identifier": identifier, "data": "{\"action\": \"\(methodName)\"}"]
             if let messageParams = ActionCableClient.serializeToJSONString(paramsObj) {
