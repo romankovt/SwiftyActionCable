@@ -19,6 +19,11 @@ DerivedData
 *.hmap
 *.ipa
 
+# xcode user specific staff
+*.xcodeproj/xcuserdata/*
+!*.xcodeproj/project.pbxproj
+*.xcworkspace/*
+
 # Bundler
 .bundle
 
