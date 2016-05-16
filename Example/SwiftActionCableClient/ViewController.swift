@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         // callback on message from server
         exampleChannel.onMessage = { json in
             print(json)
+            // send unsubscribe event to the server
+            client.unsubscribeFrom(exampleChannel)
         }
         
         // callback on succesfull subsbscription
@@ -34,10 +36,6 @@ class ViewController: UIViewController {
         // send subscribe to request to server and start listening
         client.subscribeTo(exampleChannel)
         exampleChannel.perform("say_hello")
-        
-        // send unsubscribe event to the server
-//        exampleChannel.unSubscribe()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
