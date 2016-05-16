@@ -7,11 +7,36 @@
 //
 
 import UIKit
+import SwiftyActionCable
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initiate client with NSMutableURLRequest
+        let request = NSMutableURLRequest(URL: NSURL(string: "ws://localhost:3000/cable")!)
+        let client = ActionCableClient(mutableRequest: request)
+        
+        // Create new channel
+        let exampleChannel = ActionChannel.init(name: "ExampleChannel")
+        
+        // callback on message from server
+        exampleChannel.onMessage = { json in
+            print(json)
+        }
+        
+        // callback on succesfull subsbscription
+        exampleChannel.onSubscribed  = {
+            print("succesfully subscribed!")
+        }
+        
+        // send subscribe to request to server and start listening
+        client.subscribeTo(exampleChannel)
+        exampleChannel.perform("say_hello")
+        
+        // send unsubscribe event to the server
+//        exampleChannel.unSubscribe()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
