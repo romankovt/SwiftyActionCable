@@ -1,5 +1,4 @@
 
-[![CI Status](http://img.shields.io/travis/Roman Kovtunenko/SwiftyActionCable.svg?style=flat)](https://travis-ci.org/Roman Kovtunenko/SwiftyActionCable)
 [![Version](https://img.shields.io/cocoapods/v/SwiftyActionCable.svg?style=flat)](http://cocoapods.org/pods/SwiftyActionCable)
 [![License](https://img.shields.io/cocoapods/l/SwiftyActionCable.svg?style=flat)](http://cocoapods.org/pods/SwiftyActionCable)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyActionCable.svg?style=flat)](http://cocoapods.org/pods/SwiftyActionCable)
